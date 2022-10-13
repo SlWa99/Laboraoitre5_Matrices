@@ -1,6 +1,11 @@
 public class Matrice {
     // region Ctor
 
+    public Matrice(int ligne, int colonne) {
+        this.ligne = ligne;
+        this.colonne = colonne;
+    }
+
     //endregion
 
 
@@ -9,8 +14,9 @@ public class Matrice {
 
     private int colonne;
 
-    // endregion
+    private int[][] tab = new int[ligne][colonne];
 
+    // endregion
 
     // region Méthodes publiques
 }
