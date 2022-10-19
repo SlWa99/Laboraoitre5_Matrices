@@ -1,13 +1,26 @@
 public class Main {
     public static void main(String[] args) {
 
-        Matrice m1 = new Matrice(2, 3, 45);
+        final int MODULO = 5;
 
-        Matrice m2 = new Matrice(3, 5, 7);
+        Matrice one = new Matrice(new int[][] {{1,3,1,1},{3,2,4,2},{1,0,1,0}}, MODULO);
+        Matrice two = new Matrice(new int[][] {{1,4,2,3,2},{0,1,0,4,2},{0,0,2,0,2}}, MODULO);
 
-        Matrice m3 = new Matrice(new int[][] {{1, 2, 3},
-                                              {4, 5, 6}}, 45);
+        System.out.println("The modulus is " + MODULO);
 
-        System.out.print(m3);
+        System.out.println("one");
+        System.out.println(one);
+
+        System.out.println("two");
+        System.out.println(two);
+
+        System.out.println("one + two");
+        System.out.println(one.add(two));
+
+        System.out.println("one - two");
+        System.out.println(one.substract(two));
+
+        System.out.println("one x two");
+        System.out.println(one.multiply(two));
     }
 }
