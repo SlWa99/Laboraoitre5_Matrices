@@ -28,7 +28,7 @@ public class Matrice {
     // region Méthodes publiques
     public Matrice add(Matrice right) {
         try{
-            return Operation(this,right, new Add());
+            return applyOperation(this,right, new Addition());
         }
         catch (RuntimeException e) {
             throw e;
@@ -37,7 +37,7 @@ public class Matrice {
 
     public Matrice substract(Matrice right) {
         try{
-            return Operation(this,right, new Substract());
+            return applyOperation(this,right, new Substraction());
         }
         catch (RuntimeException e) {
             throw e;
@@ -46,7 +46,7 @@ public class Matrice {
 
     public Matrice multiply(Matrice right) {
         try{
-            return Operation(this,right, new Multiply());
+            return applyOperation(this,right, new Multiplication());
         }
         catch (RuntimeException e) {
             throw e;
@@ -98,15 +98,15 @@ public class Matrice {
         this.matrice = matrice;
     }
 
-    private void modulo() {
+    private void reformatMatriceWithModulo() {
         for(int i = 0; i < ligne; i++) {
             for(int j = 0; j < colonne; j++) {
-                matrice[i][j] = Math.floorMod(matrice[i][j],modulo);
+                matrice[i][j] = Math.floorMod(matrice[i][j], modulo);
             }
         }
     }
 
-    private Matrice Operation(Matrice left,Matrice right, Operator operator) {
+    private Matrice applyOperation(Matrice left, Matrice right, Operator operator) {
         if(right.modulo != left.modulo) {
             throw new RuntimeException("Modulo pas identique entre les 2 éléments de l'operation");
         }
@@ -129,7 +129,7 @@ public class Matrice {
                 out.matrice[i][j] = operator.apply(left.matrice[i][j],right.matrice[i][j]);
             }
         }
-        out.modulo();
+        out.reformatMatriceWithModulo();
         return out;
     }
     // endregion
