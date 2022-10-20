@@ -4,7 +4,7 @@ public class Matrice {
         this.ligne = ligne;
         this.colonne = colonne;
         this.modulo = modulo;
-        genererMatriceAleatoire(ligne, colonne, modulo);
+        generateRandomMatrice(ligne, colonne, modulo);
     }
 
     public Matrice(int[][] matrice, int modulo) {
@@ -68,7 +68,7 @@ public class Matrice {
     // endregion
 
     // region Méthodes privées
-    private void genererMatriceAleatoire(int ligne, int colonne, int modulo) {
+    private void generateRandomMatrice(int ligne, int colonne, int modulo) {
         matrice = new int[ligne][colonne];
         for (int i = 0; i < ligne; ++i) {
             for (int j = 0; j < colonne; ++j) {
