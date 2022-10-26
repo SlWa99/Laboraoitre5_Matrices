@@ -11,7 +11,9 @@
                    Il soit possible de créer une matrice soit en générant son contenu aléatoirement
                    (une fois sa taille et son modulo connus),soit en passant ses valeurs en paramètre.
                    • Il soit possible d’afficher le contenu de la matrice.
-                   • Il soit possible d’effectuer les opérations suivantes entre deux matrices: l’addition, la soustraction et le produit composante par composante. Toutes les opérations doivent être effectuées modulo n.
+                   • Il soit possible d’effectuer les opérations suivantes entre deux matrices: l’addition,
+                     la soustraction et le produit composante par composante. Toutes les opérations doivent être
+                     effectuées modulo n.
 
  Remarque(s)     : Si l’on effectue une opération entre une matrice A de taille M1 × N1 et
                    une matrice B de taille M2 × N2 et que les tailles ne correspondent pas, le résultat
@@ -25,9 +27,9 @@
 public class Matrice {
     // region Ctor
     public Matrice(int ligne, int colonne, int modulo) {
-        this.ligne = ligne;
+        this.ligne   = ligne;
         this.colonne = colonne;
-        this.modulo = modulo;
+        this.modulo  = modulo;
         generateRandomMatrice(ligne, colonne, modulo);
     }
 
@@ -169,8 +171,11 @@ public class Matrice {
 
         for (int[] l : matrice) {
             for(int i : l){
-                if(i >= modulo) {
-                    throw new RuntimeException("Valeur max de la matrice >= modulo");
+                if( i < 0) {
+                    throw new RuntimeException("Valeur inférieur à 0 ");
+                }
+                if(i >= modulo ) {
+                    throw new RuntimeException("Valeur suppérieur ou égal au modulo");
                 }
             }
         }
@@ -215,7 +220,7 @@ public class Matrice {
         int outL = Math.max(right.ligne,left.ligne);
         int outC = Math.max(right.colonne,left.colonne);
 
-        Matrice out = new Matrice(outL,outC,modulo);
+        Matrice out = new Matrice(outL,outC, left.modulo);
         for(int i = 0; i < outL; ++i) {
             for(int j = 0; j < outC; ++j) {
                 // si la case n'existe pas pour la matrice de gauche
