@@ -43,7 +43,7 @@ public class Matrice {
     //endregion
 
     // region Paramètres privés
-    final int REPLACE_EMPTY_CASE = 0;
+    static final int REPLACE_EMPTY_CASE = 0;
     private int ligne;
     private int colonne;
     private int modulo;
