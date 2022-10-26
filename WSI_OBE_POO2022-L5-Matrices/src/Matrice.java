@@ -190,13 +190,13 @@ public class Matrice {
     }
 
     /**
-     * Nom          : applyOperation
-     * Description  : Cette fonction va faire l'opération souhaiter entre 2 matrice
-     * @param left  : Matrice de gauche
-     * @param right : Matrice de droite
+     * Nom              : applyOperation
+     * Description      : Cette fonction va faire l'opération souhaiter entre 2 matrice
+     * @param left      : Matrice de gauche
+     * @param right     : Matrice de droite
      * @param operator  : L'opération souhaiter
-     * @return      : La matrice resultant de l'opération
-     * Remarque     : Si le modulo des 2 matrices sont différents, alors la fonction throw une RunTimeException
+     * @return          : La matrice resultant de l'opération
+     * Remarque         : Si le modulo des 2 matrices sont différents, alors la fonction throw une RunTimeException
      */
     private Matrice applyOperation(Matrice left, Matrice right, Operator operator) {
         if(left == null){
