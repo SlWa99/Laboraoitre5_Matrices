@@ -89,7 +89,7 @@ public class Matrice {
         else return;
 
         for (int[] l : matrice) {
-            for(int i : l){
+            for(int i : l) {
                 if(i >= modulo) {
                     throw new RuntimeException("Valeur max de la matrice >= modulo");
                 }
