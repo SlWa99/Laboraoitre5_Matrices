@@ -59,6 +59,9 @@ public class Matrice {
      * @return      : La matrice résultant de l'addition
      */
     public Matrice add(Matrice right) {
+        if(right == null){
+            throw new RuntimeException("La matrice de droite est null");
+        }
         try{
             return applyOperation(this,right, new Addition());
         }
@@ -74,6 +77,9 @@ public class Matrice {
      * @return      : La matrice résultant de la soustraction
      */
     public Matrice substract(Matrice right) {
+        if(right == null){
+            throw new RuntimeException("La matrice de droite est null");
+        }
         try{
             return applyOperation(this,right, new Substraction());
         }
@@ -89,6 +95,9 @@ public class Matrice {
      * @return      : La matrice résultant de la multiplication
      */
     public Matrice multiply(Matrice right) {
+        if(right == null){
+            throw new RuntimeException("La matrice de droite est null");
+        }
         try{
             return applyOperation(this,right, new Multiplication());
         }
@@ -119,13 +128,16 @@ public class Matrice {
     // region Méthodes privées
 
     /**
-     * Nom          : generateRandomMatrice
-     * Description  : génère une matrice de taille ligne x colonne, n'ayant que des entiers inférieur à modulo.
-     * @param ligne : Nombre de ligne de la matrice souhaiter
-     * @param colonne : Nombre de colonne de la matrice souhaiter
-     * @param modulo : Modulo de la matrice souhaiter
+     * Nom              : generateRandomMatrice
+     * Description      : génère une matrice de taille ligne x colonne, n'ayant que des entiers inférieur à modulo.
+     * @param ligne     : Nombre de ligne de la matrice souhaiter
+     * @param colonne   : Nombre de colonne de la matrice souhaiter
+     * @param modulo    : Modulo de la matrice souhaiter
      */
     private void generateRandomMatrice(int ligne, int colonne, int modulo) {
+        if(ligne == 0 || colonne == 0 || modulo == 0){
+            throw new RuntimeException("Les paramètres d'entré ne peuvent pas avoir la valeur de 0");
+        }
         matrice = new int[ligne][colonne];
         for (int i = 0; i < ligne; ++i) {
             for (int j = 0; j < colonne; ++j) {
@@ -135,22 +147,25 @@ public class Matrice {
     }
 
     /**
-     * Nom          : generateMatriceWhitModel
-     * Description  : Génère une matrice avec un tableau à 2 dimensions en entré,
-     * @param matrice : Tableau 2d representant la matrice
-     * @param modulo : modulo souhaiter pour la matrice
-     * Remarque     : Si un entier de matrice est plus grand ou égal à modulo on throw une RunTimeException
+     * Nom              : generateMatriceWhitModel
+     * Description      : Génère une matrice avec un tableau à 2 dimensions en entré,
+     * @param matrice   : Tableau 2d representant la matrice
+     * @param modulo    : modulo souhaiter pour la matrice
+     * Remarque         : Si un entier de matrice est plus grand ou égal à modulo on throw une RunTimeException
      */
     private void generateMatriceWhitModel(int[][] matrice, int modulo) {
+        if(matrice == null || modulo == 0){
+            throw new RuntimeException("La matrice entrée est null ou le modulo est égal à 0");
+        }
         if (matrice.length > 0)
             ligne = matrice.length;
 
-        else return;
+        else throw new RuntimeException("Nombre de ligne égal à 0");
 
         if (matrice[0].length > 0)
             colonne = matrice[0].length;
 
-        else return;
+        else throw new RuntimeException("Nombre de colonne égal à 0");
 
         for (int[] l : matrice) {
             for(int i : l){
@@ -184,6 +199,15 @@ public class Matrice {
      * Remarque     : Si le modulo des 2 matrices sont différents, alors la fonction throw une RunTimeException
      */
     private Matrice applyOperation(Matrice left, Matrice right, Operator operator) {
+        if(left == null){
+            throw new RuntimeException("La matrice de gauche est null");
+        }
+        if(right == null){
+            throw new RuntimeException("La matrice de droite est null");
+        }
+        if(operator == null){
+            throw new RuntimeException("L'operateur est null");
+        }
         if(right.modulo != left.modulo) {
             throw new RuntimeException("Modulo pas identique entre les 2 éléments de l'operation");
         }
