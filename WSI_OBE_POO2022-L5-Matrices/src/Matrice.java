@@ -118,7 +118,7 @@ public class Matrice {
         for(int i = 0; i < outL; ++i) {
             for(int j = 0; j < outC; ++j) {
                 if( i >= left.ligne  || j >= left.colonne) {
-                    out.matrice[i][j] = operator.apply(0,right.matrice[i][j]);
+                    out.matrice[i][j] = operator.apply(0, right.matrice[i][j]);
                     continue;
                 }
 
@@ -126,7 +126,7 @@ public class Matrice {
                     out.matrice[i][j] = operator.apply(left.matrice[i][j],0);
                     continue;
                 }
-                out.matrice[i][j] = operator.apply(left.matrice[i][j],right.matrice[i][j]);
+                out.matrice[i][j] = operator.apply(left.matrice[i][j], right.matrice[i][j]);
             }
         }
         out.reformatMatriceWithModulo();
