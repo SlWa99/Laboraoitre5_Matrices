@@ -1,3 +1,21 @@
+/*
+ -----------------------------------------------------------------------------------
+ Nom du fichier  : Main.java
+ Nom du labo     : Laboratoire 5 POO : Matrice
+ Auteur(s)       : Baume Oscar, Slimani Walid
+ Date creation   : 12.10.2022
+
+ Description     : L'objectif du labo est de définir une classe permettant de représenter des matrices
+                   de taille quelconque (M × N) contenant des éléments entre 0 et n - 1 pour un
+                   entier n (les entiers sont modulo n). Ces matrices doivent pouvoir
+                   être affichée. Il est nécessaire que ces matrices puissent faire des operations ensemble,
+                   addition, soustraction et multiplication sont implémenter ici.
+
+ Remarque(s)     :
+
+ Modification(s) : / aucune modification
+ -----------------------------------------------------------------------------------
+*/
 public class Main {
     public static void main(String[] args) {
 
